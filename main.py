@@ -88,15 +88,6 @@ async def create_account(body: Dict):
 
 @app.post("/api/accounts/verify")
 async def verify_account_password(body: Dict):
-    """
-    Verify the account password.
-
-    Args:
-        body (Dict): The request body containing the username and password.
-
-    Returns:
-        Union[Dict, JSONResponse]: A dictionary with the success status or a JSONResponse with the error details.
-    """
     username = body["username"]
     password = body["password"]
     try:
