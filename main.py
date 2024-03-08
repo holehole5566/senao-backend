@@ -60,7 +60,7 @@ def check_blocked(username):
     if username in account_blocked:
         wait_time = timedelta(minutes=1)
         if datetime.now() - account_blocked[username] < wait_time:
-            raise BaseException("Account is blocked")
+            raise BaseException("Account is blocked, try it later")
 
 
 @app.post("/api/accounts")
