@@ -63,7 +63,7 @@ def check_blocked(username):
             raise BaseException("Account is blocked")
 
 
-@app.post("/account")
+@app.post("/api/accounts")
 async def create_account(body: Dict):
     try:
         validate_username(body["username"])
@@ -86,8 +86,17 @@ async def create_account(body: Dict):
     return {"success": True}
 
 
-@app.post("/verify")
+@app.post("/api/accounts/verify")
 async def verify_account_password(body: Dict):
+    """
+    Verify the account password.
+
+    Args:
+        body (Dict): The request body containing the username and password.
+
+    Returns:
+        Union[Dict, JSONResponse]: A dictionary with the success status or a JSONResponse with the error details.
+    """
     username = body["username"]
     password = body["password"]
     try:
