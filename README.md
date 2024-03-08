@@ -26,13 +26,18 @@ This endpoint is used to create a new user account.
 ### Response
 
 ```json
+# status code 200
 {
     "success": true
 }
-
-
+# status code 422
 {
     "success": false,
-    "reason": 
+    "reason": "Password must contain at least one lowercase letter"
+}
+# status code 409
+{
+    "success": false,
+    "reason": "Username already exists"
 }
 ```
